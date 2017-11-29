@@ -1,0 +1,15 @@
+swarm:
+  logging: DEBUG
+  undertow:
+    filter-configuration:
+      custom-filters:
+        foo:
+          module: foo.bar
+          class-name: foo.bar.HeaderFilter
+    servers:
+      default-server:
+        hosts:
+          default-host:
+            filter-refs:
+              foo:
+                priority: 100
